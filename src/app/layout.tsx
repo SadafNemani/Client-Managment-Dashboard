@@ -1,9 +1,11 @@
-import {Sidebar} from "@/components/sidebar";
+import "./globals.css";
+import {Sidebar} from "@/components/ui/sidebar";
 import React from "react";
+
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html>
+    <html lang="en">
       <body>
         <Sidebar />
         {children}
