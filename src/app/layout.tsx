@@ -8,11 +8,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <body
         className={cn(
-          "flex w-full h-screen bg-gray-100 dark:bg-neutral-900"
+          "flex w-full h-screen bg-background text-neutral-200 border border-neutral-800 rounded-md"
         )}
       >
         <AppSidebar />
-        <main className="flex-1 overflow-y-auto">{children}</main>
+        <main className="flex-1 overflow-y-auto bg-background-light">{children}</main>
       </body>
     </html>
   );

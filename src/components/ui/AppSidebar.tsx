@@ -48,25 +48,27 @@ export default function AppSidebar() {
 
   return (
     <Sidebar>
-      <SidebarBody>
+      <SidebarBody className="border-r border-neutral-800 bg-background-light pt-10">
         <div className="flex flex-col justify-between h-full">
           <div className="flex flex-col gap-2">
             {links.map((link) => (
               <SidebarLink
                 key={link.href}
-                link={link}
+                link={{
+                  ...link,
+                  icon: (
+                    <span className="text-neutral-400 group-hover/sidebar:text-neutral-900 group-hover/sidebar:scale-110 transition-all duration-150">
+                      {link.icon}
+                    </span>
+                  ),
+                }}
                 className={cn(
-                  "px-3 rounded-lg transition",
-                  pathname === link.href
-                    ? "bg-neutral-200/70 dark:bg-neutral-700/70"
-                    : "hover:bg-neutral-200/40 dark:hover:bg-neutral-800/40"
+                  "flex items-center gap-3 px-3 py-2 rounded-lg transition-colors duration-150 text-base font-bold",
+                  "text-neutral-400 hover:text-neutral-900 hover:bg-primary",
+                  pathname === link.href ? "bg-primary text-neutral-900" : ""
                 )}
               />
             ))}
-          </div>
-          {/* Optional footer */}
-          <div className="text-xs text-neutral-500 dark:text-neutral-400 p-2">
-            © 2025 Your App
           </div>
         </div>
       </SidebarBody>
