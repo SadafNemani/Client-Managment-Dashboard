@@ -1,6 +1,7 @@
 import "./globals.css";
 import React from "react";
 import AppSidebar from "@/components/ui/AppSidebar";
+import { Navbar } from "@/components/ui/navbar";
 import { cn } from "@/lib/utils";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -12,7 +13,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         )}
       >
         <AppSidebar />
-        <main className="flex-1 overflow-y-auto bg-background-light">{children}</main>
+        <div className="flex-col flex-1">
+          <Navbar />
+          <main className="flex-1 overflow-y-auto bg-background-light">{children}</main>
+        </div>
       </body>
     </html>
   );
