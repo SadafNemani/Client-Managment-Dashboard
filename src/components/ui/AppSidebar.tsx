@@ -20,8 +20,8 @@ export default function AppSidebar() {
 
   const links = [
     {
-      label: "Overview",
-      href: "/overview",
+      label: "Dashboard",
+      href: "/dashboard",
       icon: <RiBarChartBoxFill className="h-6 w-6" />,
     },
     {

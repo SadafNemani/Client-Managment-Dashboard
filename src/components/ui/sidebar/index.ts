@@ -6,4 +6,4 @@ export {
   SidebarLink,
   SidebarProvider,
   useSidebar
-} from "./Sidebar";
+} from './sidebar';
