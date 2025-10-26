@@ -13,7 +13,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     <AppSidebar />
     <div className="flex-col flex-1">
         <Navbar />
-        <main className="flex-1 overflow-y-auto bg-background-light">{children}</main>
+        <main className="flex-1 overflow-y-auto bg-background-light h-full">{children}</main>
     </div>
     </div>
   );
