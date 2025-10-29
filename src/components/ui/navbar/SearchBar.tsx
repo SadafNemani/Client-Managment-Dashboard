@@ -24,7 +24,7 @@ export default function SearchBar() {
             <input
                 type="text"
                 id="search-navbar"
-                className="block w-full p-2 ps-10 text-sm text-white placeholder-gray-400 bg-background-dark border border-gray-600 rounded-lg focus:ring-primary focus:border-primary"
+                className="block w-full p-2 ps-10 outline-none text-sm text-white placeholder-gray-400 bg-background-dark border border-gray-600 rounded-lg focus:ring-primary focus:border-primary"
                 placeholder="Search..."
             />
             </div>
