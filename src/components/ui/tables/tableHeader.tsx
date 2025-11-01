@@ -2,8 +2,8 @@
 import { useState } from "react";
 import { RiAddCircleLine } from "react-icons/ri";
 import { RiSearchLine } from "react-icons/ri";
-import { RiArrowUpDownLine } from "react-icons/ri";
 import { RiFilterFill } from "react-icons/ri";
+
 
 type TableHeaderProps = {
     title: string;
@@ -11,7 +11,7 @@ type TableHeaderProps = {
     onAddClick: () => void;
     onSearchChange?: (value: string) => void;
     onSortChange?: (field: string) => void;
-    onToggleUnpaid?: (value: boolean) => void;
+    onToggleUnpaid?: () => void;
 }
 
 export function TableHeader({  
@@ -38,7 +38,7 @@ export function TableHeader({
             <div className="flex items-center gap-x-4">
                 <div className="flex items-center gap-x-2">
                     <div className={`flex items-center overflow-hidden transition-all duration-300 ${activeFilter === 'search' ? 'w-64' : 'w-6'}`}>
-                        <RiSearchLine onClick={() => toggleFilter("search")} className="cursor-pointer text-xl" />
+                        <RiSearchLine onClick={() => toggleFilter("search")} className="cursor-pointer text-xl text-gray-500" />
                         {activeFilter === 'search' && (
                         <input
                             type="text"
@@ -50,9 +50,17 @@ export function TableHeader({
                         )}
                     </div>
 
-                    <RiArrowUpDownLine onClick={() => toggleFilter("sort")} className="cursor-pointer text-xl" />
-
-                    <RiFilterFill onClick={() => toggleFilter("unpaid")} className="cursor-pointer text-xl" />
+                    <div className="relative group">
+                        <RiFilterFill
+                            onClick={onToggleUnpaid}
+                            className={`cursor-pointer text-xl transition-colors duration-200 ${
+                            showUnpaidOnly ? "text-primary" : "text-gray-500"
+                            }`}
+                        />
+                        <span className="absolute bottom-full mb-2 hidden group-hover:block bg-gray-800 text-white text-xs rounded-md px-2 py-1 whitespace-nowrap">
+                            Show unpaid clients
+                        </span>
+                    </div>
                 </div>
 
                 <button

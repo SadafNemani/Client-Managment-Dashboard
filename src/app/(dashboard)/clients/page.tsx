@@ -6,6 +6,16 @@ import { useState } from "react";
 
 export default function Page() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [showUnpaidOnly, setShowUnpaidOnly] = useState(false);
+
+
+  const filteredClients = clients
+  .filter(client =>
+    client.name.toLowerCase().includes(searchTerm.toLowerCase())
+  )
+  .filter(client =>
+    !showUnpaidOnly || client.outstandingBalance > 0
+  );
 
   return (
     <>
@@ -15,8 +25,12 @@ export default function Page() {
         buttonText="Add Client"
         onAddClick={() => console.log("Add client clicked")}
         onSearchChange={setSearchTerm}
+        onToggleUnpaid={() => setShowUnpaidOnly(prev => !prev)}
         />
-        <ClientsTable clients={clients} />
+        <p className="text-sm text-gray-500">
+          Showing {filteredClients.length} clients
+        </p>
+        <ClientsTable clients={filteredClients} />
       </div>
     </>
   )
