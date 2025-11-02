@@ -1,6 +1,7 @@
 'use client'
 import { useState } from "react";
 import { RiArrowUpDownLine } from "react-icons/ri";
+import Link from "next/link";
 
 
 type Client = {
@@ -81,7 +82,9 @@ export function ClientsTable({ clients = [] }: ClientsTableProps) {
                     scope="row"
                     className="px-6 py-4 font-semibold whitespace-nowrap text-white"
                 >
-                    {client.name}
+                    <Link href={`/clients/${client.id}`} className="hover:underline">
+                        {client.name}
+                    </Link>
                 </th>
                 <td className="px-6 py-4">{client.email}</td>
                 <td className="px-6 py-4">{client.phone}</td>
